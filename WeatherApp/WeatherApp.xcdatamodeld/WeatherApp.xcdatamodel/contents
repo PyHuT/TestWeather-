@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="City" representedClassName="City" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="size" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="temperature" toMany="YES" deletionRule="Cascade" destinationEntity="Temperature" inverseName="city" inverseEntity="Temperature"/>
+    </entity>
+    <entity name="Temperature" representedClassName="Temperature" syncable="YES">
+        <attribute name="celsius" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="mounth" attributeType="Integer 16" minValueString="0" maxValueString="11" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="temperature" inverseEntity="City"/>
+    </entity>
+    <elements>
+        <element name="City" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Temperature" positionX="-63" positionY="0" width="128" height="74"/>
+    </elements>
+</model>
