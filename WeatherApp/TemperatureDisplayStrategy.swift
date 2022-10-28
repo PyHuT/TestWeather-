@@ -13,7 +13,7 @@ struct TemperatureDisplayStrategy {
     enum Strategy {
         case kelvin
         case celsius
-        case farengate
+        case fahrenheit
     }
     
     @State var type: Strategy
@@ -22,11 +22,11 @@ struct TemperatureDisplayStrategy {
         switch type {
             
         case .kelvin:
-            return temperature + 273
+            return temperature + 273.15
         case .celsius:
             return temperature
-        case .farengate:
-            return temperature
+        case .fahrenheit:
+            return temperature * 1.8 + 32
         }
     }
     
@@ -39,11 +39,11 @@ struct TemperatureDisplayStrategy {
         switch type {
             
         case .kelvin:
-            return temperature - 273
+            return temperature - 273.15
         case .celsius:
             return temperature
-        case .farengate:
-            return temperature
+        case .fahrenheit:
+            return (temperature - 32) / 1.8
         }
     }
 }
